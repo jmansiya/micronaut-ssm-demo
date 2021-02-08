@@ -10,6 +10,7 @@ Globals:
       Variables:
         MICRONAUT_ENVIRONMENTS: dev, ec2
         MICRONAUT_ENV_DEDUCTION: false
+        DEDUCE_ENVIRONMENT_ENV: false
 
 Resources:
   MyServiceFunction:

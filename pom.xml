@@ -10,14 +10,14 @@
   <parent>
     <groupId>io.micronaut</groupId>
     <artifactId>micronaut-parent</artifactId>
-    <version>2.3.0</version>
+    <version>2.2.4-SNAPSHOT</version>
   </parent>
 
   <properties>
     <packaging>jar</packaging>
     <jdk.version>11</jdk.version>
     <release.version>11</release.version>
-    <micronaut.version>2.3.1</micronaut.version>
+    <micronaut.version>2.2.4-SNAPSHOT</micronaut.version>
     <exec.mainClass>io.micronaut.function.aws.runtime.MicronautLambdaRuntime</exec.mainClass>
     <micronaut.runtime>lambda</micronaut.runtime>
   </properties>
@@ -30,6 +30,10 @@
     <repository>
       <id>jcenter.bintray.com</id>
       <url>https://jcenter.bintray.com</url>
+    </repository>
+    <repository>
+      <id>jfrog-snapshots</id>
+      <url>https://oss.jfrog.org/oss-snapshot-local</url>
     </repository>
   </repositories>
 
@@ -98,6 +102,7 @@
       <groupId>io.micronaut.aws</groupId>
       <artifactId>micronaut-aws-parameter-store</artifactId>
       <version>2.3.0</version>
+      <scope>compile</scope>
     </dependency>
     <!-- <dependency>
       <groupId>com.amazonaws</groupId>
@@ -108,11 +113,6 @@
       <groupId>io.micronaut</groupId>
       <artifactId>micronaut-http-client</artifactId>
       <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.micronaut</groupId>
-      <artifactId>micronaut-discovery-client</artifactId>
-      <version>2.0.1</version>
     </dependency>
   </dependencies>
 
