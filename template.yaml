@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Globals:
+  Function:
+    MemorySize: 512
+    Runtime: java11
+    Tracing: Active
+    Environment:
+      Variables:
+        MICRONAUT_ENVIRONMENTS: dev, ec2
+        MICRONAUT_ENV_DEDUCTION: false
+
+Resources:
+  MyServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.example.LambdaHandler::handleRequest
+      CodeUri: target/demo-0.1.jar
+      MemorySize: 512
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 145
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+
+Outputs:
+  MyServiceApi:
+    Description: URL for application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/find-primes-below/{number}'
+    Export:
+      Name: MicronautPrimeFinder

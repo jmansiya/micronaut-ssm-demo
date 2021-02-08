@@ -1,0 +1,14 @@
+micronaut:
+  application:
+    name: demo
+  config-client:
+    enabled: true
+
+aws:
+  client:
+    system-manager:
+      parameterstore:
+        enabled: true
+        useSecureParameters: true
+        #root-hierarchy-path: "/config/mb-login-migration-lambda_${ENVIRONMENT}"
+        search-active-environments: true
