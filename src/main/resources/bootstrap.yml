@@ -10,5 +10,4 @@ aws:
       parameterstore:
         enabled: true
         useSecureParameters: true
-        #root-hierarchy-path: "/config/mb-login-migration-lambda_${ENVIRONMENT}"
-        search-active-environments: true
+        #searchActiveEnvironments: f

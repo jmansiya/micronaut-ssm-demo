@@ -4,7 +4,6 @@ Transform: 'AWS::Serverless-2016-10-31'
 Globals:
   Function:
     MemorySize: 512
-    Runtime: java11
     Tracing: Active
     Environment:
       Variables:
@@ -15,8 +14,9 @@ Resources:
   MyServiceFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: com.example.LambdaHandler::handleRequest
-      CodeUri: target/demo-0.1.jar
+      Handler: not.used.in.provided.runtime
+      Runtime: provided
+      CodeUri: build/function.zip
       MemorySize: 512
       Policies: AWSLambdaBasicExecutionRole
       Timeout: 145
